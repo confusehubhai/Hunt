@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple ChatGPT-like Chat</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chat-container {
+      width: 400px;
+      max-width: 100%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .chat-box {
+      flex: 1;
+      overflow-y: scroll;
+      max-height: 300px;
+      margin-bottom: 10px;
+      padding-right: 10px;
+    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple ChatGPT-like Chat</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chat-container {
+      width: 400px;
+      max-width: 100%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .chat-box {
+      flex: 1;
+      overflow-y: scroll;
+      max-height: 300px;
+      margin-bottom: 10px;
+      padding-right: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin-right: 10px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      margin: 10px 0;
+    }
+
+    .message.user {
+      text-align: right;
+    }
+
+    .message.bot {
+      text-align: left;
+      background-color: #f1f1f1;
+      padding: 8px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const inputField = document.getElementById("user-input");
+      const chatBox = document.getElementById("chat-box");
+      const userMessage = inputField.value.trim();
+
+      if (userMessage) {
+        // Display user message
+        const userMessageDiv = document.createElement("div");
+        userMessageDiv.classList.add("message", "user");
+        userMessageDiv.textContent = userMessage;
+        chatBox.appendChild(userMessageDiv);
+
+        // Simulate bot response (You can replace this with an API call to a server or AI model)
+        setTimeout(() => {
+          const botMessageDiv = document.createElement("div");
+          botMessageDiv.classList.add("message", "bot");
+          botMessageDiv.textContent = "This is a simulated bot response.";
+          chatBox.appendChild(botMessageDiv);
+
+          // Scroll to the bottom of the chat
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 1000);
+
+        // Clear input field
+        inputField.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
