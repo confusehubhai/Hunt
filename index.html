@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catch the Star</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="catchGame.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="stats">
+            <div id="score">Score: 0</div>
+            <div id="high-score">High Score: 0</div>
+            <div id="lives">Lives: ❤️❤️❤️</div>
+            <div id="level">Level: 1</div>
+        </div>
+        <div id="game-over" class="hidden">
+            Game Over!<br>
+            Final Score: <span id="final-score">0</span><br>
+            <button id="restart-btn">Play Again</button>
+        </div>
+        <button id="start-btn">Start Game</button>
+        <div id="game-area">
+            <div id="star">🍕</div>
+            <div id="catcher">🤲</div>  <!-- Changed from basket to magic wand -->
+        </div>
+        <div class="controls-info">
+            <p class="desktop-controls">Use ← → arrow keys to move</p>
+            <p class="mobile-controls">Tap left/right side to move</p>
+        </div>
+    </div>
+    
+    <!-- Social Media Links -->
+    <div class="social-links">
+        <a href="https://instagram.com/confusedvirus" target="_blank" class="instagram-link">
+            📷 Follow on Instagram
+        </a>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="collect-sound" src="sounds/collect.mp3" preload="auto"></audio>
+    <audio id="powerup-sound" src="sounds/powerup.mp3" preload="auto"></audio>
+    <audio id="gameover-sound" src="sounds/gameover.mp3" preload="auto"></audio>
+
+    <script src="catchGame.js"></script>
+</body>
+</html>
