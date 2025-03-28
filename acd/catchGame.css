@@ -1,0 +1,187 @@
+:root {
+    --game-width: min(400px, 95vw);
+    --game-height: min(500px, 70vh);
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: var(--game-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+#game-area {
+    width: var(--game-width);
+    height: var(--game-height);
+    border: 3px solid gold;  /* Fixed border color syntax */
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+#star {
+    position: absolute;
+    font-size: 32px;  /* Increased size */
+    transform: translateX(-50%);
+    transition: left 0.1s linear;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+#catcher {  /* Changed from #basket */
+    position: absolute;
+    bottom: 10px;  /* Added spacing from bottom */
+    font-size: 48px;  /* Increased size */
+    transform: translateX(-50%);
+    transition: left 0.1s linear;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+#score {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #ffd700, #ffa500);
+    border: none;
+    border-radius: 25px;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.falling-object {
+    position: absolute;
+    font-size: 24px;
+    transform: translateX(-50%);
+    transition: left 0.1s linear;
+}
+
+.powerup {
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 2px yellow);
+    }
+    to {
+        filter: drop-shadow(0 0 8px yellow);
+    }
+}
+
+.collected {
+    animation: collect 0.5s ease-out;
+}
+
+@keyframes collect {
+    to {
+        transform: scale(1.5) translateY(-20px);
+        opacity: 0;
+    }
+}
+
+.controls-info {
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.mobile-controls {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-controls {
+        display: none;
+    }
+    
+    .mobile-controls {
+        display: block;
+    }
+}
+
+.social-links {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.instagram-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.instagram-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .social-links {
+        bottom: 10px;
+    }
+    
+    .instagram-link {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
